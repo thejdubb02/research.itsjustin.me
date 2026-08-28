@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Justin Willhite, Security Researcher</title>
+<meta name="description" content="Justin Willhite (thejdubb02), independent security researcher: source-code review, access control, SSRF, injection, and responsible disclosure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f7f9; --surface:#ffffff; --ink:#14181f; --muted:#586172; --faint:#7d8595;
+    --border:#e4e8ee; --accent:#0f766e; --accent-soft:rgba(15,118,110,.10);
+    --tag:#0f766e; --tag-bg:rgba(15,118,110,.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d1117; --surface:#121821; --ink:#e8ecf2; --muted:#9aa4b2; --faint:#6b7482;
+      --border:#222b36; --accent:#2dd4bf; --accent-soft:rgba(45,212,191,.12);
+      --tag:#2dd4bf; --tag-bg:rgba(45,212,191,.12);
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px; margin:0 auto; padding:64px 24px 80px}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 14px;
+  }
+  header{display:flex; gap:20px; align-items:center; margin-bottom:34px}
+  header img{
+    width:76px; height:76px; border-radius:50%; object-fit:cover;
+    border:1px solid var(--border); flex:0 0 auto;
+  }
+  h1{font-size:30px; line-height:1.15; margin:0 0 4px; font-weight:700; letter-spacing:-.01em}
+  .handle{color:var(--faint); font-size:15px}
+  .lede{font-size:18px; color:var(--ink); margin:0 0 40px}
+  .lede .soft{color:var(--muted)}
+  h2{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--faint); font-weight:600;
+    margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--border);
+  }
+  section{margin-bottom:44px}
+  .work{display:flex; flex-direction:column; gap:20px}
+  .item{display:grid; grid-template-columns:92px 1fr; gap:16px; align-items:start}
+  @media (max-width:520px){ .item{grid-template-columns:1fr; gap:6px} }
+  .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.06em;
+    color:var(--tag); background:var(--tag-bg); border:1px solid var(--accent-soft);
+    padding:3px 8px; border-radius:5px; text-align:center; align-self:start; white-space:nowrap;
+  }
+  .item h3{margin:0 0 3px; font-size:16.5px; font-weight:600}
+  .item p{margin:0; color:var(--muted); font-size:15px}
+  .item a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+  .item a:hover{border-bottom-color:var(--accent)}
+  .chips{display:flex; flex-wrap:wrap; gap:9px}
+  .chip{
+    font-size:13.5px; color:var(--muted); background:var(--surface);
+    border:1px solid var(--border); border-radius:999px; padding:5px 13px;
+  }
+  .links{display:flex; flex-wrap:wrap; gap:10px 26px}
+  .links a{
+    color:var(--ink); text-decoration:none; font-size:15px; font-weight:500;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .links a:hover{color:var(--accent)}
+  .links .k{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:.05em}
+  footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--border); color:var(--faint); font-size:13px}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Security Researcher</p>
+    <header>
+      <img src="avatar.png" alt="Justin Willhite" width="76" height="76">
+      <div>
+        <h1>Justin Willhite</h1>
+        <div class="handle mono">@thejdubb02</div>
+      </div>
+    </header>
+
+    <p class="lede">
+      Independent security researcher. I read source to find real, reproducible
+      vulnerabilities in open-source software, then disclose them responsibly and
+      ship minimal, tested fixes. <span class="soft">Focus on access-control and IDOR
+      flaws, server-side request forgery, and injection.</span>
+    </p>
+
+    <section>
+      <h2>Selected work</h2>
+      <div class="work">
+        <div class="item">
+          <span class="tag">MERGED</span>
+          <div>
+            <h3>changedetection.io, PR #4336</h3>
+            <p>Fixed the Browser Steps picker so it can select a control nested inside a
+            container element. Reviewed and merged upstream.
+            <a href="https://github.com/dgtlmoon/changedetection.io/pull/4336">View PR</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <span class="tag">ADVISORY</span>
+          <div>
+            <h3>RAGFlow, access-control (IDOR)</h3>
+            <p>Reported a broken object-level authorization issue through a GitHub Security
+            Advisory (GHSA-rj43-2cxg-488f), coordinated with the maintainers.</p>
+          </div>
+        </div>
+        <div class="item">
+          <span class="tag">DISCLOSURE</span>
+          <div>
+            <h3>Coordinated disclosures in progress</h3>
+            <p>Additional source-review findings (including an SSRF) are in coordinated
+            disclosure with the affected vendors. Details published once fixed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Focus areas</h2>
+      <div class="chips">
+        <span class="chip">Access control and IDOR</span>
+        <span class="chip">SSRF</span>
+        <span class="chip">Injection</span>
+        <span class="chip">White-box source review</span>
+        <span class="chip">Responsible disclosure</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Find me</h2>
+      <div class="links">
+        <a href="https://github.com/thejdubb02"><span class="k">GH</span> github.com/thejdubb02</a>
+        <a href="https://hackerone.com/thejdubb02"><span class="k">H1</span> hackerone.com/thejdubb02</a>
+        <a href="https://orcid.org/0009-0003-1512-1198"><span class="k">ID</span> ORCID</a>
+        <a href="https://www.linkedin.com/in/justinwillhite/"><span class="k">IN</span> LinkedIn</a>
+        <a href="https://x.com/JDubbTV"><span class="k">X</span> @JDubbTV</a>
+        <a href="mailto:jdubb@commquest.io"><span class="k">@</span> jdubb@commquest.io</a>
+      </div>
+    </section>
+
+    <footer>
+      Static page, no trackers. Built and maintained by Justin Willhite.
+    </footer>
+  </main>
+</body>
+</html>
