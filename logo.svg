@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  itsjustin.me persona mark — "J." monogram.
+  Bronze disc with subtle gradient, white path-built J, cream-bronze period.
+  Authored as paths (no font dependency) so all favicon sizes rasterize crisp.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="itsjustin.me — J.">
+  <defs>
+    <radialGradient id="disc" cx="35%" cy="30%" r="80%">
+      <stop offset="0%"  stop-color="#d4a574"/>
+      <stop offset="55%" stop-color="#c7915b"/>
+      <stop offset="100%" stop-color="#a87644"/>
+    </radialGradient>
+    <radialGradient id="rim" cx="50%" cy="50%" r="50%">
+      <stop offset="92%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.20"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Disc -->
+  <circle cx="512" cy="512" r="510" fill="url(#disc)"/>
+  <!-- Subtle rim shadow for depth -->
+  <circle cx="512" cy="512" r="510" fill="url(#rim)"/>
+
+  <!-- J letter: vertical stem + rounded hook. stroke-width 138, rounded ends. -->
+  <path d="M 470 270 L 470 620 Q 470 720 380 720 L 320 720"
+        stroke="#ffffff" stroke-width="138" fill="none"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Period — sits at the J's baseline -->
+  <circle cx="700" cy="725" r="64" fill="#ffe5b8"/>
+</svg>
